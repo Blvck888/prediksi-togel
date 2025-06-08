@@ -859,14 +859,45 @@
     }
 
     // ==================== INISIALISASI ====================
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('prediction-type').addEventListener('change', toggleDropdownPasaran);
-      document.getElementById('generate-button').addEventListener('click', generatePrediksi);
-      document.getElementById('copy-button').addEventListener('click', salinPrediksi);
+document.addEventListener('DOMContentLoaded', function() {
+  // Inisialisasi dropdown pasaran
+  muatDaftarPasaranDropdown();
+  
+  // Event listeners lainnya
+  document.getElementById('prediction-type').addEventListener('change', toggleDropdownPasaran);
+  document.getElementById('generate-button').addEventListener('click', generatePrediksi);
+  document.getElementById('copy-button').addEventListener('click', salinPrediksi);
+  
+  // Pastikan dropdown dalam state yang benar
+  toggleDropdownPasaran();
+});
 
-      muatDaftarPasaranDropdown();
-      toggleDropdownPasaran();
-    });
+// Fungsi untuk mengisi dropdown pasaran
+function muatDaftarPasaranDropdown() {
+  const dropdownPasaran = document.getElementById('pasaran');
+  
+  // Kosongkan dropdown kecuali opsi pertama
+  while (dropdownPasaran.options.length > 1) {
+    dropdownPasaran.remove(1);
+  }
+  
+  // Isi dropdown dengan daftar pasaran dari Config
+  Config.PASARAN.forEach(pasaran => {
+    const option = document.createElement('option');
+    option.value = pasaran;
+    option.textContent = pasaran;
+    dropdownPasaran.appendChild(option);
+  });
+  
+  // Ubah teks default
+  if (dropdownPasaran.options.length > 1) {
+    dropdownPasaran.options[0].text = '-- Pilih Pasaran --';
+    dropdownPasaran.disabled = false;
+  } else {
+    dropdownPasaran.options[0].text = '-- Gagal Memuat Pasaran --';
+    dropdownPasaran.disabled = true;
+  }
+}
   </script>
 </body>
 </html>
