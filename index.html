@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ PREDIKSI TOGEL | Platinum Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8e44ad;
+      --secondary: #9b59b6;
+      --dark: #1a1a2e;
+      --darker: #16213e;
+      --light: #f8f9fa;
+      --accent: #f1c40f;
+      --success: #2ecc71;
+      --danger: #e74c3c;
+      --glass: rgba(255, 255, 255, 0.9);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.3);
+      --logo-height: 60px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('https://cdn.areabermain.club/assets/cdn/az6/2025/04/01/20250401/5dc9d083e18085eef7c0cd7fcf52bd46/linetogel-bg-new.jpg') no-repeat center center fixed;
+      background-size: cover;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 750px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    .prediction-container {
+      background: var(--glass);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(155, 89, 182, 0.3);
+      width: 100%;
+      backdrop-filter: blur(5px);
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      height: var(--logo-height);
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0 0 20px 0;
+      text-align: center;
+      font-family: 'Rubik Doodle Shadow', cursive;
+      color: #8e44ad;
+      text-shadow: 3px 3px 0 #f1c40f, 
+                   6px 6px 0 rgba(142, 68, 173, 0.5);
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    select {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(155, 89, 182, 0.5);
+      color: #333;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238e44ad'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    #prediction-output {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 25px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #333;
+      line-height: 1.6;
+      max-height: 500px;
+      overflow-y: auto;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(155, 89, 182, 0.3);
+      word-break: break-word;
+    }
+
+    #prediction-output pre {
+         white-space: pre-wrap;
+         word-break: break-word;
+    }
+
+    .prediction-header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(155, 89, 182, 0.2);
+    }
+
+    .prediction-header h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .pasaran-block {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        border: 1px solid rgba(155, 89, 182, 0.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .pasaran-block:last-child {
+        margin-bottom: 0;
+    }
+
+    .pasaran-block h3 {
+         color: var(--primary);
+         margin: 0 0 5px;
+         font-size: 1.2rem;
+         font-weight: 700;
+    }
+
+    .pasaran-block .prediction-divider.inside-block {
+         margin: 5px 0 10px;
+    }
+
+    .prediction-row {
+      display: flex;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+
+    .prediction-label {
+      width: 130px;
+      min-width: 120px;
+      font-weight: 600;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .prediction-value {
+      flex: 1;
+      font-weight: 500;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .prediction-divider {
+      height: 1px;
+      background: rgba(155, 89, 182, 0.2);
+      margin: 15px 0;
+    }
+
+    .prediction-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    #copy-button {
+      margin-top: 20px;
+      background: linear-gradient(135deg, var(--danger) 0%, #c0392b 100%);
+    }
+
+    #copy-button.copied {
+      background: linear-gradient(135deg, var(--success) 0%, #27ae60 100%);
+    }
+
+    #error-message {
+        color: var(--danger);
+        font-weight: 600;
+        text-align: center;
+        margin-top: 15px;
+        display: none;
+        white-space: pre-wrap;
+    }
+
+    #prediction-output::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #prediction-output::-webkit-scrollbar-track {
+      background: rgba(200, 200, 200, 0.5);
+      border-radius: 10px;
+    }
+
+    #prediction-output::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    .pasaran-date {
+      font-size: 0.9em;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+    .shake {
+      animation: shake 0.5s;
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --logo-height: 50px;
+      }
+      .container {
+        padding: 10px;
+      }
+
+      .prediction-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .prediction-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .prediction-label {
+        width: 100%;
+        margin-bottom: 5px;
+        min-width: auto;
+        margin-right: 0 !important;
+      }
+      .prediction-row {
+          margin-bottom: 8px;
+      }
+      .pasaran-block {
+          padding: 10px;
+          margin-bottom: 15px;
+      }
+      .pasaran-block h3 {
+          font-size: 1.1rem;
+      }
+      .prediction-divider {
+          margin: 10px 0;
+      }
+      .pasaran-block .prediction-divider.inside-block {
+          margin: 8px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --logo-height: 40px;
+      }
+      .prediction-container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        text-shadow: 2px 2px 0 #f1c40f, 
+                   4px 4px 0 rgba(142, 68, 173, 0.5);
+      }
+
+      select, button {
+        padding: 12px 15px;
+      }
+
+      #prediction-output {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="prediction-container">
+      <div class="logo-container">
+        <img src="https://cdn.areabermain.club/assets/cdn/az4/2025/04/23/20250423/a82bdc6fb564d0dff3671aeb9a4d1da5/logo.png" 
+             alt="Prediksi Togel Logo" 
+             class="logo">
+      </div>
+
+      <h1>Prediksi Togel</h1>
+
+      <div class="form-group">
+        <label for="prediction-type">JENIS PREDIKSI:</label>
+        <select id="prediction-type">
+          <option value="single">Single Pasaran</option>
+          <option value="all">All Pasaran</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="pasaran-group">
+        <label for="pasaran">PILIH PASARAN:</label>
+        <select id="pasaran" required>
+          <option value="" disabled selected>-- Memuat Pasaran... --</option>
+        </select>
+      </div>
+
+      <button id="generate-button">
+        <span id="generate-text">GENERATE PREDIKSI</span>
+      </button>
+
+      <div id="error-message" class="form-group"></div>
+      <div id="prediction-output" style="display: none;"></div>
+      <button id="copy-button" style="display: none;">SALIN HASIL</button>
+    </div>
+  </div>
+
+  <script>
+    // ==================== KONFIGURASI ====================
+    const Config = {
+      PASARAN: [
+        "BANGKOK 0130", "BANGKOK 0930", "BRUNEI 02", "BRUNEI 14", "BRUNEI 21",
+        "BULLSEYE", "CALIFORNIA", "CAROLINA EVENING", "CHELSEA 11", "CHELSEA 15",
+        "CHELSEA 19", "CHELSEA 21", "FLORIDA EVENING", "FLORIDA MIDDAY", "HOKIDRAW",
+        "HONGKONG", "HUAHIN 0100", "HUAHIN 1630", "HUAHIN 2100", "JAKARTA 1400",
+        "JAKARTA 2330", "KENTUCKY EVENING", "KENTUCKY MIDDAY", "KINGKONG 4D MALAM",
+        "KINGKONG 4D SORE", "MAGNUM4D", "NEVADA", "NEW YORK EVENING", "NEW YORK MIDDAY",
+        "NORTH CAROLINA DAY", "OREGON 03", "OREGON 06", "OREGON 09", "OREGON 12",
+        "PCSO", "POIPET 12", "POIPET 15", "POIPET 19", "POIPET 22", "SINGAPORE",
+        "SYDNEY", "TOTO CAMBODIA", "TOTO MACAU 5D MALAM", "TOTO MACAU 5D SORE",
+        "TOTO MACAU MALAM I", "TOTO MACAU MALAM II", "TOTO MACAU MALAM III",
+        "TOTO MACAU PAGI", "TOTO MACAU SIANG", "TOTO MACAU SORE", "TOTO MALI 1530",
+        "TOTO MALI 2030", "TOTO MALI 2330"
+      ],
+      SHIO: [
+        "Tikus", "Kerbau", "Macan", "Kelinci", "Naga",
+        "Ular", "Kuda", "Kambing", "Monyet", "Ayam",
+        "Anjing", "Babi"
+      ],
+      URUTAN_PASARAN: [
+        "TOTO MACAU PAGI", "KENTUCKY MIDDAY", "FLORIDA MIDDAY", "HUAHIN 0100",
+        "BANGKOK 0130", "NEW YORK MIDDAY", "NORTH CAROLINA DAY", "BRUNEI 02",
+        "OREGON 03", "OREGON 06", "CALIFORNIA", "FLORIDA EVENING", "OREGON 09",
+        "BANGKOK 0930", "NEW YORK EVENING", "KENTUCKY EVENING", "CAROLINA EVENING",
+        "TOTO CAMBODIA", "CHELSEA 11", "OREGON 12", "BULLSEYE", "POIPET 12",
+        "TOTO MACAU SIANG", "SYDNEY", "JAKARTA 1400", "BRUNEI 14", "CHELSEA 15",
+        "TOTO MACAU 5D SORE", "POIPET 15", "TOTO MALI 1530", "TOTO MACAU SORE",
+        "HUAHIN 1630", "KINGKONG 4D SORE", "SINGAPORE", "MAGNUM4D", "CHELSEA 19",
+        "TOTO MACAU MALAM I", "POIPET 19", "PCSO", "TOTO MALI 2030", "HUAHIN 2100",
+        "CHELSEA 21", "TOTO MACAU 5D MALAM", "NEVADA", "BRUNEI 21", "TOTO MACAU MALAM II",
+        "POIPET 22", "HONGKONG", "TOTO MACAU MALAM III", "TOTO MALI 2330", "JAKARTA 2330",
+        "KINGKONG 4D MALAM", "HOKIDRAW"
+      ],
+      GENERATOR: {
+        FOUR_D: { jumlah: 4, digit: 4 },
+        THREE_D: { jumlah: 4, digit: 3 },
+        TWO_D: { jumlah: 10, digit: 2 },
+        COLOK_BEBAS: { jumlah: 2, digit: 1 },
+        COLOK_BEBAS_2D: { jumlah: 3, digit: 2 },
+        TWIN: { jumlah: 3, digit: 2 },
+        BBFS: {
+          besarKecil: { digit: 7 },
+          genapGanjil: { digit: 5 }
+        },
+        SHIO: { jumlah: 3 }
+      }
+    };
+
+    // ==================== FUNGSI UTILITAS ====================
+    function generateAngka(digit, jumlah) {
+      if (digit <= 0 || jumlah <= 0) return [];
+      const hasil = [];
+      const maxNumber = Math.pow(10, digit);
+      for (let i = 0; i < jumlah; i++) {
+        let randomNumber = Math.floor(Math.random() * maxNumber);
+        let angkaString = String(randomNumber).padStart(digit, '0');
+        hasil.push(angkaString);
+      }
+      return hasil;
+    }
+
+    function generateAngkaKembar(jumlah, digit) {
+      if (jumlah <= 0 || digit <= 0) return [];
+      const hasil = [];
+      for (let i = 0; i < jumlah; i++) {
+        const digitKembar = Math.floor(Math.random() * 10).toString();
+        hasil.push(digitKembar.repeat(digit));
+      }
+      return hasil;
+    }
+
+    function generateShio(jumlah) {
+      if (jumlah <= 0) return [];
+      const hasil = [];
+      for (let i = 0; i < jumlah; i++) {
+        const randomIndex = Math.floor(Math.random() * Config.SHIO.length);
+        hasil.push(Config.SHIO[randomIndex]);
+      }
+      return hasil;
+    }
+
+    function dapatkanTanggalHariIniFormatted() {
+      const sekarang = new Date();
+      const HARI = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+      const BULAN = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      return `${HARI[sekarang.getDay()]}, ${sekarang.getDate()} ${BULAN[sekarang.getMonth()]} ${sekarang.getFullYear()}`;
+    }
+
+    // ==================== FUNGSI PREDIKSI ====================
+    function buatPrediksi(pasaran) {
+      if (!Config.PASARAN.includes(pasaran)) {
+        console.error(`Permintaan prediksi untuk pasaran tidak valid: '${pasaran}'`);
+        return { error: `Pasaran '${pasaran}' tidak ditemukan dalam daftar konfigurasi.` };
+      }
+
+      const twinDigit = Config.GENERATOR.TWIN.digit || 2;
+
+      return {
+        pasaran: pasaran,
+        tanggalFormatted: dapatkanTanggalHariIniFormatted(),
+        bbfs: {
+          besarKecil: generateAngka(Config.GENERATOR.BBFS.besarKecil.digit, 1)[0],
+          genapGanjil: generateAngka(Config.GENERATOR.BBFS.genapGanjil.digit, 1)[0]
+        },
+        fourD: generateAngka(Config.GENERATOR.FOUR_D.digit, Config.GENERATOR.FOUR_D.jumlah),
+        threeD: generateAngka(Config.GENERATOR.THREE_D.digit, Config.GENERATOR.THREE_D.jumlah),
+        twoD: generateAngka(Config.GENERATOR.TWO_D.digit, Config.GENERATOR.TWO_D.jumlah),
+        colokBebas: generateAngka(Config.GENERATOR.COLOK_BEBAS.digit, Config.GENERATOR.COLOK_BEBAS.jumlah),
+        colokBebas2D: generateAngka(Config.GENERATOR.COLOK_BEBAS_2D.digit, Config.GENERATOR.COLOK_BEBAS_2D.jumlah),
+        twin: generateAngkaKembar(Config.GENERATOR.TWIN.jumlah, twinDigit),
+        shio: generateShio(Config.GENERATOR.SHIO.jumlah)
+      };
+    }
+
+    function buatSemuaPrediksi() {
+      const hasilPrediksi = [];
+      const tanggalFormatted = dapatkanTanggalHariIniFormatted();
+
+      Config.URUTAN_PASARAN.forEach(pasaran => {
+        try {
+          const prediksi = buatPrediksi(pasaran);
+          if (!prediksi.error) {
+            prediksi.tanggalFormatted = tanggalFormatted;
+          }
+          hasilPrediksi.push(prediksi);
+        } catch (error) {
+          console.error(`Kesalahan tak terduga saat membuat prediksi untuk ${pasaran}:`, error);
+          hasilPrediksi.push({ pasaran: pasaran, error: `Kesalahan internal: ${error.message}` });
+        }
+      });
+
+      return hasilPrediksi;
+    }
+
+    // ==================== TAMPILAN DAN INTERAKSI ====================
+    const outputElement = document.getElementById('prediction-output');
+    const tombolGenerate = document.getElementById('generate-button');
+    const teksGenerate = document.getElementById('generate-text');
+    const dropdownPasaran = document.getElementById('pasaran');
+    const grupPasaran = document.getElementById('pasaran-group');
+    const pesanError = document.getElementById('error-message');
+    const tombolSalin = document.getElementById('copy-button');
+
+    function showError(message) {
+      pesanError.textContent = 'Error: ' + message;
+      pesanError.style.display = 'block';
+      hidePredictionOutput();
+    }
+
+    function hideError() {
+      pesanError.style.display = 'none';
+      pesanError.textContent = '';
+    }
+
+    function showLoading() {
+      teksGenerate.innerHTML = 'Memproses...';
+      tombolGenerate.disabled = true;
+      hidePredictionOutput();
+      hideError();
+    }
+
+    function hideLoading() {
+      teksGenerate.textContent = 'GENERATE PREDIKSI';
+      tombolGenerate.disabled = false;
+    }
+
+    function showPredictionOutput() {
+      outputElement.style.display = 'block';
+      tombolSalin.style.display = 'block';
+    }
+
+    function hidePredictionOutput() {
+      outputElement.style.display = 'none';
+      tombolSalin.style.display = 'none';
+      outputElement.innerHTML = '';
+      delete outputElement.dataset.copyText;
+      tombolSalin.textContent = 'SALIN HASIL';
+      tombolSalin.classList.remove('copied');
+    }
+
+    function muatDaftarPasaranDropdown() {
+      while (dropdownPasaran.options.length > 1) {
+        dropdownPasaran.remove(1);
+      }
+
+      Config.PASARAN.forEach(pasaran => {
+        const opsi = document.createElement('option');
+        opsi.value = pasaran;
+        opsi.text = pasaran;
+        dropdownPasaran.appendChild(opsi);
+      });
+      dropdownPasaran.options[0].text = '-- Pilih Pasaran --';
+      dropdownPasaran.disabled = false;
+    }
+
+    function buatBaris(label, value) {
+      const baris = document.createElement('div');
+      baris.className = 'prediction-row';
+
+      const labelSpan = document.createElement('span');
+      labelSpan.className = 'prediction-label';
+      labelSpan.textContent = label + ':';
+      labelSpan.style.marginRight = '10px';
+
+      const valueSpan = document.createElement('span');
+      valueSpan.className = 'prediction-value';
+      valueSpan.textContent = value;
+
+      baris.appendChild(labelSpan);
+      baris.appendChild(valueSpan);
+      return baris;
+    }
+
+    function tampilkanPrediksiSingle(data) {
+      hideLoading();
+      if (data && data.error) {
+        showError(data.error);
+        return;
+      }
+      if (!data || !data.pasaran || !data.bbfs || !data.tanggalFormatted) {
+        showError("Format data prediksi yang diterima tidak valid.");
+        return;
+      }
+
+      outputElement.innerHTML = '';
+
+      const header = document.createElement('div');
+      header.className = 'prediction-header';
+      const judul = document.createElement('h2');
+      judul.textContent = `PREDIKSI ${data.pasaran.toUpperCase()}`;
+      const tanggal = document.createElement('div');
+      tanggal.className = 'date';
+      tanggal.textContent = data.tanggalFormatted;
+      header.appendChild(judul);
+      header.appendChild(tanggal);
+      outputElement.appendChild(header);
+
+      outputElement.appendChild(buatBaris('BBFS', data.bbfs.besarKecil));
+      outputElement.appendChild(buatBaris('AM/AI/CK', data.bbfs.genapGanjil));
+
+      const pembatas1 = document.createElement('div');
+      pembatas1.className = 'prediction-divider';
+      outputElement.appendChild(pembatas1);
+
+      outputElement.appendChild(buatBaris('4D', data.fourD.join(' ')));
+      outputElement.appendChild(buatBaris('3D', data.threeD.join(' ')));
+      outputElement.appendChild(buatBaris('2D (BB)', data.twoD.join(' ')));
+
+      const pembatas2 = document.createElement('div');
+      pembatas2.className = 'prediction-divider';
+      outputElement.appendChild(pembatas2);
+
+      outputElement.appendChild(buatBaris('COLOK BEBAS', data.colokBebas.join(' / ')));
+      outputElement.appendChild(buatBaris('COLOK BEBAS 2D', data.colokBebas2D.join(' / ')));
+      outputElement.appendChild(buatBaris('TWIN', data.twin.join(' / ')));
+      outputElement.appendChild(buatBaris('SHIO', data.shio.join(' / ')));
+
+      const footer = document.createElement('div');
+      footer.className = 'prediction-footer';
+      footer.textContent = 'Selalu Utamakan Prediksi Sendiri';
+      outputElement.appendChild(footer);
+
+      outputElement.dataset.copyText = buatTeksSalinSingle(data);
+      showPredictionOutput();
+    }
+
+    function tampilkanSemuaPrediksiAll(dataArray) {
+      hideLoading();
+      if (!dataArray || !Array.isArray(dataArray) {
+        showError("Tidak ada data prediksi yang diterima atau format tidak valid.");
+        return;
+      }
+
+      outputElement.innerHTML = '';
+      let teksSalin = '';
+      let firstSuccessfulDate = null;
+
+      const headerAll = document.createElement('div');
+      headerAll.className = 'prediction-header';
+      const judulAll = document.createElement('h2');
+      judulAll.textContent = 'PREDIKSI SEMUA PASARAN';
+
+      const successfulPredictions = dataArray.filter(data => data && !data.error);
+      const failedPredictions = dataArray.filter(data => data && data.error);
+
+      if (successfulPredictions.length > 0) {
+        firstSuccessfulDate = successfulPredictions[0].tanggalFormatted;
+        const tanggalAll = document.createElement('div');
+        tanggalAll.className = 'date';
+        tanggalAll.textContent = firstSuccessfulDate;
+        headerAll.appendChild(judulAll);
+        headerAll.appendChild(tanggalAll);
+        outputElement.appendChild(headerAll);
+
+        teksSalin += `Prediksi Semua Pasaran\n`;
+        teksSalin += `Tanggal: ${firstSuccessfulDate}\n\n`;
+      } else {
+        headerAll.appendChild(judulAll);
+        outputElement.appendChild(headerAll);
+        teksSalin = "Tidak ada prediksi yang berhasil dihasilkan.";
+      }
+
+      successfulPredictions.forEach((prediksi, index) => {
+        const pasaranBlock = document.createElement('div');
+        pasaranBlock.className = 'pasaran-block';
+
+        const judulPasaran = document.createElement('h3');
+        judulPasaran.textContent = prediksi.pasaran;
+        pasaranBlock.appendChild(judulPasaran);
+
+        const pemisahJudul = document.createElement('div');
+        pemisahJudul.className = 'prediction-divider inside-block';
+        pasaranBlock.appendChild(pemisahJudul);
+
+        pasaranBlock.appendChild(buatBaris('BBFS', prediksi.bbfs.besarKecil));
+        pasaranBlock.appendChild(buatBaris('AM/AI/CK', prediksi.bbfs.genapGanjil));
+
+        const pembatas1 = document.createElement('div');
+        pembatas1.className = 'prediction-divider inside-block';
+        pasaranBlock.appendChild(pembatas1);
+
+        pasaranBlock.appendChild(buatBaris('4D', prediksi.fourD.join(' ')));
+        pasaranBlock.appendChild(buatBaris('3D', prediksi.threeD.join(' ')));
+        pasaranBlock.appendChild(buatBaris('2D (BB)', prediksi.twoD.join(' ')));
+
+        const pembatas2 = document.createElement('div');
+        pembatas2.className = 'prediction-divider inside-block';
+        pasaranBlock.appendChild(pembatas2);
+
+        pasaranBlock.appendChild(buatBaris('COLOK BEBAS', prediksi.colokBebas.join(' / ')));
+        pasaranBlock.appendChild(buatBaris('COLOK BEBAS 2D', prediksi.colokBebas2D.join(' / ')));
+        pasaranBlock.appendChild(buatBaris('TWIN', prediksi.twin.join(' / ')));
+        pasaranBlock.appendChild(buatBaris('SHIO', prediksi.shio.join(' / ')));
+
+        outputElement.appendChild(pasaranBlock);
+
+        teksSalin += `Pasaran: ${prediksi.pasaran}\n`;
+        teksSalin += `BBFS : ${prediksi.bbfs.besarKecil}\n`;
+        teksSalin += `AM/AI/CK : ${prediksi.bbfs.genapGanjil}\n`;
+        teksSalin += `4D : ${prediksi.fourD.join(' ')}\n`;
+        teksSalin += `3D : ${prediksi.threeD.join(' ')}\n`;
+        teksSalin += `2D (BB) : ${prediksi.twoD.join(' ')}\n`;
+        teksSalin += `COLOK BEBAS : ${prediksi.colokBebas.join(' / ')}\n`;
+        teksSalin += `COLOK BEBAS 2D : ${prediksi.colokBebas2D.join(' / ')}\n`;
+        teksSalin += `TWIN : ${prediksi.twin.join(' / ')}\n`;
+        teksSalin += `SHIO : ${prediksi.shio.join(' / ')}\n`;
+        if (index < successfulPredictions.length - 1) {
+          teksSalin += "\n";
+        }
+      });
+
+      if (failedPredictions.length > 0) {
+        if (successfulPredictions.length > 0) {
+          const errorDivider = document.createElement('div');
+          errorDivider.className = 'prediction-divider';
+          errorDivider.style.margin = '20px 0';
+          outputElement.appendChild(errorDivider);
+        }
+
+        const errorHeader = document.createElement('h3');
+        errorHeader.style.color = 'var(--danger)';
+        errorHeader.style.margin = '15px 0 5px';
+        errorHeader.textContent = '⚠️ Gagal Menghasilkan Untuk Pasaran:';
+        outputElement.appendChild(errorHeader);
+
+        failedPredictions.forEach(fail => {
+          const errorItem = document.createElement('p');
+          errorItem.style.color = 'var(--danger)';
+          errorItem.style.marginBottom = '5px';
+          errorItem.textContent = `- ${fail.pasaran}: ${fail.error || 'Kesalahan tidak diketahui'}`;
+          outputElement.appendChild(errorItem);
+        });
+      }
+
+      const footer = document.createElement('div');
+      footer.className = 'prediction-footer';
+      footer.textContent = 'Selalu Utamakan Prediksi Sendiri';
+      outputElement.appendChild(footer);
+
+      if (successfulPredictions.length > 0 || failedPredictions.length > 0) {
+        teksSalin += "\nSelalu Utamakan Prediksi Sendiri";
+      }
+
+      outputElement.dataset.copyText = teksSalin;
+      showPredictionOutput();
+    }
+
+    function buatTeksSalinSingle(data) {
+      return `Prediksi ${data.pasaran}\n` +
+        `Hari ${data.tanggalFormatted}\n` +
+        `BBFS : ${data.bbfs.besarKecil}\n` +
+        `AM/AI/CK : ${data.bbfs.genapGanjil}\n` +
+        `4D : ${data.fourD.join(' ')}\n` +
+        `3D : ${data.threeD.join(' ')}\n` +
+        `2D (BB) : ${data.twoD.join(' ')}\n` +
+        `COLOK BEBAS : ${data.colokBebas.join(' / ')}\n` +
+        `COLOK BEBAS 2D : ${data.colokBebas2D.join(' / ')}\n` +
+        `TWIN : ${data.twin.join(' / ')}\n` +
+        `SHIO : ${data.shio.join(' / ')}\n` +
+        `Selalu Utamakan Prediksi Sendiri`;
+    }
+
+    function salinPrediksi() {
+      const teksUntukDisalin = outputElement.dataset.copyText;
+      if (!teksUntukDisalin) return;
+
+      navigator.clipboard.writeText(teksUntukDisalin).then(() => {
+        tombolSalin.textContent = '✔ Berhasil Disalin';
+        tombolSalin.classList.add('copied');
+        setTimeout(() => {
+          tombolSalin.textContent = 'SALIN HASIL';
+          tombolSalin.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Gagal menyalin teks: ', err);
+        alert("Gagal menyalin teks otomatis. Silakan salin manual dari area hasil.");
+      });
+    }
+
+    function toggleDropdownPasaran() {
+      const jenisPrediksi = document.getElementById('prediction-type').value;
+      if (jenisPrediksi === 'all') {
+        grupPasaran.style.display = 'none';
+        dropdownPasaran.removeAttribute('required');
+      } else {
+        grupPasaran.style.display = 'block';
+        dropdownPasaran.setAttribute('required', '');
+      }
+      hidePredictionOutput();
+      hideError();
+    }
+
+    function validasiInput() {
+      const jenisPrediksi = document.getElementById('prediction-type').value;
+      if (jenisPrediksi === 'single') {
+        if (grupPasaran.style.display !== 'none' && !dropdownPasaran.value) {
+          dropdownPasaran.classList.add('shake');
+          setTimeout(() => {
+            dropdownPasaran.classList.remove('shake');
+          }, 500);
+          showError("Mohon pilih pasaran terlebih dahulu.");
+          return false;
+        }
+      }
+      hideError();
+      return true;
+    }
+
+    function generatePrediksi() {
+      if (!validasiInput()) return;
+
+      const jenisPrediksi = document.getElementById('prediction-type').value;
+      showLoading();
+
+      setTimeout(() => {
+        if (jenisPrediksi === 'single') {
+          const pasaranTerpilih = dropdownPasaran.value;
+          tampilkanPrediksiSingle(buatPrediksi(pasaranTerpilih));
+        } else {
+          tampilkanSemuaPrediksiAll(buatSemuaPrediksi());
+        }
+        hideLoading();
+      }, 100);
+    }
+
+    // ==================== INISIALISASI ====================
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('prediction-type').addEventListener('change', toggleDropdownPasaran);
+      document.getElementById('generate-button').addEventListener('click', generatePrediksi);
+      document.getElementById('copy-button').addEventListener('click', salinPrediksi);
+
+      muatDaftarPasaranDropdown();
+      toggleDropdownPasaran();
+    });
+  </script>
+</body>
+</html>
