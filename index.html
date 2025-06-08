@@ -574,18 +574,28 @@
     }
 
     function muatDaftarPasaranDropdown() {
+      // Kosongkan dropdown kecuali opsi pertama
       while (dropdownPasaran.options.length > 1) {
         dropdownPasaran.remove(1);
       }
 
+      // Isi dropdown dengan daftar pasaran
       Config.PASARAN.forEach(pasaran => {
-        const opsi = document.createElement('option');
-        opsi.value = pasaran;
-        opsi.text = pasaran;
-        dropdownPasaran.appendChild(opsi);
+        const option = document.createElement('option');
+        option.value = pasaran;
+        option.textContent = pasaran;
+        dropdownPasaran.appendChild(option);
       });
-      dropdownPasaran.options[0].text = '-- Pilih Pasaran --';
-      dropdownPasaran.disabled = false;
+
+      // Update teks default
+      if (dropdownPasaran.options.length > 1) {
+        dropdownPasaran.options[0].text = '-- Pilih Pasaran --';
+        dropdownPasaran.disabled = false;
+      } else {
+        dropdownPasaran.options[0].text = '-- Gagal Memuat Pasaran --';
+        dropdownPasaran.disabled = true;
+        showError("Gagal memuat daftar pasaran");
+      }
     }
 
     function buatBaris(label, value) {
@@ -661,7 +671,7 @@
 
     function tampilkanSemuaPrediksiAll(dataArray) {
       hideLoading();
-      if (!dataArray || !Array.isArray(dataArray) {
+      if (!dataArray || !Array.isArray(dataArray)) {
         showError("Tidak ada data prediksi yang diterima atau format tidak valid.");
         return;
       }
@@ -797,11 +807,16 @@
 
     function salinPrediksi() {
       const teksUntukDisalin = outputElement.dataset.copyText;
-      if (!teksUntukDisalin) return;
+      if (!teksUntukDisalin) {
+        console.warn("Tidak ada teks untuk disalin.");
+        return;
+      }
 
       navigator.clipboard.writeText(teksUntukDisalin).then(() => {
+        console.log('Teks berhasil disalin!');
         tombolSalin.textContent = '✔ Berhasil Disalin';
         tombolSalin.classList.add('copied');
+
         setTimeout(() => {
           tombolSalin.textContent = 'SALIN HASIL';
           tombolSalin.classList.remove('copied');
@@ -842,62 +857,43 @@
     }
 
     function generatePrediksi() {
-      if (!validasiInput()) return;
+      if (!validasiInput()) {
+        console.log("Validasi input gagal.");
+        return;
+      }
 
       const jenisPrediksi = document.getElementById('prediction-type').value;
       showLoading();
 
+      // Simulasikan loading dengan setTimeout
       setTimeout(() => {
         if (jenisPrediksi === 'single') {
           const pasaranTerpilih = dropdownPasaran.value;
+          console.log(`Membuat prediksi untuk: ${pasaranTerpilih}`);
           tampilkanPrediksiSingle(buatPrediksi(pasaranTerpilih));
         } else {
+          console.log("Membuat semua prediksi");
           tampilkanSemuaPrediksiAll(buatSemuaPrediksi());
         }
         hideLoading();
-      }, 100);
+      }, 500);
     }
 
     // ==================== INISIALISASI ====================
-document.addEventListener('DOMContentLoaded', function() {
-  // Inisialisasi dropdown pasaran
-  muatDaftarPasaranDropdown();
-  
-  // Event listeners lainnya
-  document.getElementById('prediction-type').addEventListener('change', toggleDropdownPasaran);
-  document.getElementById('generate-button').addEventListener('click', generatePrediksi);
-  document.getElementById('copy-button').addEventListener('click', salinPrediksi);
-  
-  // Pastikan dropdown dalam state yang benar
-  toggleDropdownPasaran();
-});
-
-// Fungsi untuk mengisi dropdown pasaran
-function muatDaftarPasaranDropdown() {
-  const dropdownPasaran = document.getElementById('pasaran');
-  
-  // Kosongkan dropdown kecuali opsi pertama
-  while (dropdownPasaran.options.length > 1) {
-    dropdownPasaran.remove(1);
-  }
-  
-  // Isi dropdown dengan daftar pasaran dari Config
-  Config.PASARAN.forEach(pasaran => {
-    const option = document.createElement('option');
-    option.value = pasaran;
-    option.textContent = pasaran;
-    dropdownPasaran.appendChild(option);
-  });
-  
-  // Ubah teks default
-  if (dropdownPasaran.options.length > 1) {
-    dropdownPasaran.options[0].text = '-- Pilih Pasaran --';
-    dropdownPasaran.disabled = false;
-  } else {
-    dropdownPasaran.options[0].text = '-- Gagal Memuat Pasaran --';
-    dropdownPasaran.disabled = true;
-  }
-}
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("Aplikasi diinisialisasi...");
+      
+      // Muat daftar pasaran saat halaman dimuat
+      muatDaftarPasaranDropdown();
+      
+      // Setup event listeners
+      document.getElementById('prediction-type').addEventListener('change', toggleDropdownPasaran);
+      document.getElementById('generate-button').addEventListener('click', generatePrediksi);
+      document.getElementById('copy-button').addEventListener('click', salinPrediksi);
+      
+      // Set initial state
+      toggleDropdownPasaran();
+    });
   </script>
 </body>
 </html>
