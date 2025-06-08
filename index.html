@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>✨ PREDIKSI TOGEL</title>
+  <title>✨ PREDIKSI TOGEL | Platinum Edition</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
@@ -873,7 +873,6 @@
       const jenisPrediksi = document.getElementById('prediction-type').value;
       showLoading();
 
-      // Simulasikan loading dengan setTimeout
       setTimeout(() => {
         if (jenisPrediksi === 'single') {
           const pasaranTerpilih = dropdownPasaran.value;
@@ -891,15 +890,12 @@
     document.addEventListener('DOMContentLoaded', function() {
       console.log("Aplikasi diinisialisasi...");
       
-      // Muat daftar pasaran saat halaman dimuat
       muatDaftarPasaranDropdown();
       
-      // Setup event listeners
       document.getElementById('prediction-type').addEventListener('change', toggleDropdownPasaran);
       document.getElementById('generate-button').addEventListener('click', generatePrediksi);
       document.getElementById('copy-button').addEventListener('click', salinPrediksi);
       
-      // Set initial state
       toggleDropdownPasaran();
     });
   </script>
