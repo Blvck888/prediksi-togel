@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>✨ PREDIKSI TOGEL | Platinum Edition</title>
   
-  <!-- ========== FAVICON ========== -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -13,8 +13,9 @@
   <link rel="manifest" href="favicon/site.webmanifest">
   <meta name="theme-color" content="#8e44ad">
 
-  <!-- ========== FONTS & CSS ========== -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #8e44ad;
@@ -150,9 +151,9 @@
     }
 
     button:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: none;
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
     }
 
     #prediction-output {
@@ -171,8 +172,8 @@
     }
 
     #prediction-output pre {
-         white-space: pre-wrap;
-         word-break: break-word;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
 
     .prediction-header {
@@ -189,27 +190,27 @@
     }
 
     .pasaran-block {
-        margin-bottom: 20px;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 8px;
-        border: 1px solid rgba(155, 89, 182, 0.1);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      border: 1px solid rgba(155, 89, 182, 0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .pasaran-block:last-child {
-        margin-bottom: 0;
+      margin-bottom: 0;
     }
 
     .pasaran-block h3 {
-         color: var(--primary);
-         margin: 0 0 5px;
-         font-size: 1.2rem;
-         font-weight: 700;
+      color: var(--primary);
+      margin: 0 0 5px;
+      font-size: 1.2rem;
+      font-weight: 700;
     }
 
     .pasaran-block .prediction-divider.inside-block {
-         margin: 5px 0 10px;
+      margin: 5px 0 10px;
     }
 
     .prediction-row {
@@ -257,12 +258,12 @@
     }
 
     #error-message {
-        color: var(--danger);
-        font-weight: 600;
-        text-align: center;
-        margin-top: 15px;
-        display: none;
-        white-space: pre-wrap;
+      color: var(--danger);
+      font-weight: 600;
+      text-align: center;
+      margin-top: 15px;
+      display: none;
+      white-space: pre-wrap;
     }
 
     #prediction-output::-webkit-scrollbar {
@@ -323,20 +324,20 @@
         margin-right: 0 !important;
       }
       .prediction-row {
-          margin-bottom: 8px;
+        margin-bottom: 8px;
       }
       .pasaran-block {
-          padding: 10px;
-          margin-bottom: 15px;
+        padding: 10px;
+        margin-bottom: 15px;
       }
       .pasaran-block h3 {
-          font-size: 1.1rem;
+        font-size: 1.1rem;
       }
       .prediction-divider {
-          margin: 10px 0;
+        margin: 10px 0;
       }
       .pasaran-block .prediction-divider.inside-block {
-          margin: 8px 0;
+        margin: 8px 0;
       }
     }
 
@@ -386,7 +387,7 @@
       <div class="form-group" id="pasaran-group">
         <label for="pasaran">PILIH PASARAN:</label>
         <select id="pasaran" required>
-          <option value="" disabled selected>-- Memuat Pasaran... --</option>
+          <option value="" disabled selected>-- Pilih Pasaran --</option>
         </select>
       </div>
 
@@ -584,12 +585,10 @@
     }
 
     function muatDaftarPasaranDropdown() {
-      // Kosongkan dropdown kecuali opsi pertama
       while (dropdownPasaran.options.length > 1) {
         dropdownPasaran.remove(1);
       }
 
-      // Isi dropdown dengan daftar pasaran
       Config.PASARAN.forEach(pasaran => {
         const option = document.createElement('option');
         option.value = pasaran;
@@ -597,7 +596,6 @@
         dropdownPasaran.appendChild(option);
       });
 
-      // Update teks default
       if (dropdownPasaran.options.length > 1) {
         dropdownPasaran.options[0].text = '-- Pilih Pasaran --';
         dropdownPasaran.disabled = false;
