@@ -547,10 +547,10 @@
       <div class="logo-container">
         <img src="https://cdn.areabermain.club/assets/cdn/az4/2025/04/23/20250423/a82bdc6fb564d0dff3671aeb9a4d1da5/logo.png" 
              alt="Prediksi Togel Logo" 
-             class="logo">
+             class="logo floating">
       </div>
 
-      <h1>Prediksi Togel</h1>
+      <h1 class="glow">Prediksi Togel</h1>
 
       <div class="form-group">
         <label for="prediction-type">JENIS PREDIKSI:</label>
@@ -567,13 +567,17 @@
         </select>
       </div>
 
-      <button id="generate-button">
+      <button id="generate-button" class="pulse">
         <span id="generate-text">GENERATE PREDIKSI</span>
+        <i class="fas fa-magic" style="margin-left: 8px;"></i>
       </button>
 
       <div id="error-message" class="form-group"></div>
       <div id="prediction-output" style="display: none;"></div>
-      <button id="copy-button" style="display: none;">SALIN HASIL</button>
+      <button id="copy-button" style="display: none;">
+        <i class="fas fa-copy" style="margin-right: 8px;"></i>
+        <span>SALIN HASIL</span>
+      </button>
     </div>
   </div>
 
@@ -735,14 +739,14 @@
     }
 
     function showLoading() {
-      teksGenerate.innerHTML = 'Memproses...';
+      teksGenerate.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i> Memproses...';
       tombolGenerate.disabled = true;
       hidePredictionOutput();
       hideError();
     }
 
     function hideLoading() {
-      teksGenerate.textContent = 'GENERATE PREDIKSI';
+      teksGenerate.innerHTML = '<span>GENERATE PREDIKSI</span> <i class="fas fa-magic" style="margin-left: 8px;"></i>';
       tombolGenerate.disabled = false;
     }
 
@@ -756,7 +760,7 @@
       tombolSalin.style.display = 'none';
       outputElement.innerHTML = '';
       delete outputElement.dataset.copyText;
-      tombolSalin.textContent = 'SALIN HASIL';
+      tombolSalin.innerHTML = '<i class="fas fa-copy" style="margin-right: 8px;"></i> <span>SALIN HASIL</span>';
       tombolSalin.classList.remove('copied');
     }
 
@@ -998,11 +1002,11 @@
 
       navigator.clipboard.writeText(teksUntukDisalin).then(() => {
         console.log('Teks berhasil disalin!');
-        tombolSalin.textContent = '✔ Berhasil Disalin';
+        tombolSalin.innerHTML = '<i class="fas fa-check" style="margin-right: 8px;"></i> <span>Berhasil Disalin</span>';
         tombolSalin.classList.add('copied');
 
         setTimeout(() => {
-          tombolSalin.textContent = 'SALIN HASIL';
+          tombolSalin.innerHTML = '<i class="fas fa-copy" style="margin-right: 8px;"></i> <span>SALIN HASIL</span>';
           tombolSalin.classList.remove('copied');
         }, 2000);
       }).catch(err => {
